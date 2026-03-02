@@ -1,0 +1,160 @@
+@import "tailwindcss" theme(static);
+@source "../views/";
+@source "../../app/";
+
+/* Entry Content Styles - WordPress Post Content */
+.entry-content {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.entry-content h2 {
+  @apply text-3xl font-bold text-gray-900 mt-8 mb-4;
+}
+
+.entry-content h3 {
+  @apply text-2xl font-bold text-gray-900 mt-6 mb-3;
+}
+
+.entry-content h4 {
+  @apply text-xl font-bold text-gray-900 mt-6 mb-3;
+}
+
+.entry-content p {
+  @apply mb-4;
+}
+
+.entry-content a {
+  @apply text-blue-600 hover:text-blue-800 underline transition;
+}
+
+.entry-content ul,
+.entry-content ol {
+  @apply mb-4 ml-6;
+}
+
+.entry-content ul {
+  @apply list-disc;
+}
+
+.entry-content ol {
+  @apply list-decimal;
+}
+
+.entry-content li {
+  @apply mb-2;
+}
+
+.entry-content img {
+  @apply rounded-lg my-6 max-w-full h-auto;
+}
+
+.entry-content figure {
+  @apply my-6;
+}
+
+.entry-content figcaption {
+  @apply text-sm text-gray-600 mt-2 italic;
+}
+
+.entry-content blockquote {
+  @apply border-l-4 border-blue-600 pl-4 py-2 my-6 italic text-gray-600;
+}
+
+.entry-content blockquote p {
+  @apply mb-0;
+}
+
+.entry-content table {
+  @apply w-full my-6 border-collapse;
+}
+
+.entry-content th,
+.entry-content td {
+  @apply border border-gray-300 p-3 text-left;
+}
+
+.entry-content th {
+  @apply bg-gray-100 font-semibold text-gray-900;
+}
+
+.entry-content code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800;
+}
+
+.entry-content pre {
+  @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.entry-content pre code {
+  @apply bg-transparent text-white p-0;
+}
+
+.entry-content hr {
+  @apply my-8 border-gray-300;
+}
+
+/* Comment Form Styling */
+.comment-form {
+  @apply space-y-4;
+}
+
+.comment-form p {
+  @apply mb-0;
+}
+
+.comment-form label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  @apply w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.comment-form .form-submit input {
+  @apply bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-medium cursor-pointer;
+}
+
+.comment-form .comment-notes {
+  @apply text-sm text-gray-600 mb-4;
+}
+
+/* Comment List Styling */
+.comment-list .comment {
+  @apply bg-gray-50 rounded-lg p-6;
+}
+
+.comment-list .comment-author {
+  @apply font-semibold text-gray-900 mb-1;
+}
+
+.comment-list .comment-metadata {
+  @apply text-sm text-gray-500 mb-3;
+}
+
+.comment-list .comment-metadata a {
+  @apply text-gray-500 hover:text-gray-700;
+}
+
+.comment-list .comment-content {
+  @apply text-gray-700;
+}
+
+.comment-list .reply a {
+  @apply text-blue-600 hover:text-blue-800 text-sm font-medium mt-2 inline-block;
+}
+
+/* Pagination Styling */
+.pagination .nav-links {
+  @apply flex justify-center gap-2;
+}
+
+.pagination .page-numbers {
+  @apply px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition;
+}
+
+.pagination .page-numbers.current {
+  @apply bg-blue-600 text-white border-blue-600 hover:bg-blue-700;
+}
