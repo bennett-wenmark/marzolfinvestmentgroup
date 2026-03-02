@@ -2,21 +2,53 @@
 @source "../views/";
 @source "../../app/";
 
-/* Entry Content Styles - WordPress Post Content */
+/* Marzolf Investment Group - Color Palette */
+:root {
+  --color-primary: #206d13;
+  --color-primary-dark: #1a5a10;
+  --color-primary-light: #2d8a1d;
+  --color-primary-bg: #f0f7ee;
+  --color-secondary: #1a3d14;
+  --color-accent: #c9a227;
+  --color-neutral-50: #fafaf9;
+  --color-neutral-100: #f5f5f4;
+  --color-neutral-200: #e7e5e4;
+  --color-neutral-600: #57534e;
+  --color-neutral-800: #292524;
+  --color-neutral-900: #1c1917;
+}
+
+/* Modern Typography Scale */
+body {
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Entry Content Styles */
 .entry-content {
-  @apply text-gray-700 leading-relaxed;
+  @apply text-neutral-700 leading-relaxed;
+  color: var(--color-neutral-600);
 }
 
 .entry-content h2 {
-  @apply text-3xl font-bold text-gray-900 mt-8 mb-4;
+  @apply text-3xl font-bold mt-8 mb-4;
+  color: var(--color-neutral-900);
 }
 
 .entry-content h3 {
-  @apply text-2xl font-bold text-gray-900 mt-6 mb-3;
+  @apply text-2xl font-bold mt-6 mb-3;
+  color: var(--color-neutral-900);
 }
 
 .entry-content h4 {
-  @apply text-xl font-bold text-gray-900 mt-6 mb-3;
+  @apply text-xl font-bold mt-6 mb-3;
+  color: var(--color-neutral-900);
 }
 
 .entry-content p {
@@ -24,7 +56,12 @@
 }
 
 .entry-content a {
-  @apply text-blue-600 hover:text-blue-800 underline transition;
+  @apply underline transition;
+  color: var(--color-primary);
+}
+
+.entry-content a:hover {
+  color: var(--color-primary-dark);
 }
 
 .entry-content ul,
@@ -45,7 +82,7 @@
 }
 
 .entry-content img {
-  @apply rounded-lg my-6 max-w-full h-auto;
+  @apply rounded-2xl my-6 max-w-full h-auto shadow-lg;
 }
 
 .entry-content figure {
@@ -53,11 +90,13 @@
 }
 
 .entry-content figcaption {
-  @apply text-sm text-gray-600 mt-2 italic;
+  @apply text-sm text-neutral-500 mt-2 italic;
 }
 
 .entry-content blockquote {
-  @apply border-l-4 border-blue-600 pl-4 py-2 my-6 italic text-gray-600;
+  @apply border-l-4 pl-4 py-2 my-6 italic;
+  border-color: var(--color-primary);
+  color: var(--color-neutral-600);
 }
 
 .entry-content blockquote p {
@@ -70,19 +109,24 @@
 
 .entry-content th,
 .entry-content td {
-  @apply border border-gray-300 p-3 text-left;
+  @apply border border-neutral-200 p-3 text-left;
 }
 
 .entry-content th {
-  @apply bg-gray-100 font-semibold text-gray-900;
+  @apply bg-neutral-100 font-semibold;
+  color: var(--color-neutral-900);
 }
 
 .entry-content code {
-  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800;
+  @apply px-2 py-1 rounded text-sm font-mono;
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-800);
 }
 
 .entry-content pre {
-  @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto my-6;
+  @apply p-4 rounded-2xl overflow-x-auto my-6;
+  background: var(--color-neutral-900);
+  color: white;
 }
 
 .entry-content pre code {
@@ -90,7 +134,7 @@
 }
 
 .entry-content hr {
-  @apply my-8 border-gray-300;
+  @apply my-8 border-neutral-200;
 }
 
 /* Comment Form Styling */
@@ -103,47 +147,73 @@
 }
 
 .comment-form label {
-  @apply block text-sm font-medium text-gray-700 mb-1;
+  @apply block text-sm font-medium mb-1;
+  color: var(--color-neutral-800);
 }
 
 .comment-form input[type="text"],
 .comment-form input[type="email"],
 .comment-form input[type="url"],
 .comment-form textarea {
-  @apply w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  @apply w-full border border-neutral-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 transition;
+  border-color: var(--color-neutral-200);
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(32, 109, 19, 0.1);
 }
 
 .comment-form .form-submit input {
-  @apply bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-medium cursor-pointer;
+  @apply text-white px-6 py-3 rounded-lg font-medium cursor-pointer transition shadow-md hover:shadow-lg;
+  background: var(--color-primary);
+}
+
+.comment-form .form-submit input:hover {
+  background: var(--color-primary-dark);
 }
 
 .comment-form .comment-notes {
-  @apply text-sm text-gray-600 mb-4;
+  @apply text-sm mb-4;
+  color: var(--color-neutral-600);
 }
 
 /* Comment List Styling */
 .comment-list .comment {
-  @apply bg-gray-50 rounded-lg p-6;
+  @apply rounded-xl p-6;
+  background: var(--color-neutral-50);
 }
 
 .comment-list .comment-author {
-  @apply font-semibold text-gray-900 mb-1;
+  @apply font-semibold mb-1;
+  color: var(--color-neutral-900);
 }
 
 .comment-list .comment-metadata {
-  @apply text-sm text-gray-500 mb-3;
+  @apply text-sm mb-3;
+  color: var(--color-neutral-500);
 }
 
 .comment-list .comment-metadata a {
-  @apply text-gray-500 hover:text-gray-700;
+  color: var(--color-neutral-500);
+}
+
+.comment-list .comment-metadata a:hover {
+  color: var(--color-neutral-700);
 }
 
 .comment-list .comment-content {
-  @apply text-gray-700;
+  color: var(--color-neutral-600);
 }
 
 .comment-list .reply a {
-  @apply text-blue-600 hover:text-blue-800 text-sm font-medium mt-2 inline-block;
+  @apply text-sm font-medium mt-2 inline-block transition;
+  color: var(--color-primary);
+}
+
+.comment-list .reply a:hover {
+  color: var(--color-primary-dark);
 }
 
 /* Pagination Styling */
@@ -152,9 +222,68 @@
 }
 
 .pagination .page-numbers {
-  @apply px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition;
+  @apply px-4 py-2 border border-neutral-200 rounded-lg transition;
+  color: var(--color-neutral-700);
+}
+
+.pagination .page-numbers:hover {
+  background: var(--color-neutral-100);
 }
 
 .pagination .page-numbers.current {
-  @apply bg-blue-600 text-white border-blue-600 hover:bg-blue-700;
+  @apply text-white border-transparent;
+  background: var(--color-primary);
+}
+
+/* Modern Card Styles */
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+/* Glass Effect */
+.glass {
+  @apply backdrop-blur-md;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Modern Button Styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-xl;
+  background: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Section Spacing */
+.section-padding {
+  @apply py-20 md:py-28;
+}
+
+/* Container */
+.container-modern {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
