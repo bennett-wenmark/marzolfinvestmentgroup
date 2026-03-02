@@ -258,8 +258,9 @@ html {
 
 /* Modern Button Styles */
 .btn-primary {
-  @apply inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-xl;
+  @apply inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-xl no-underline;
   background: var(--color-primary);
+  text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -268,14 +269,21 @@ html {
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300;
+  @apply inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 no-underline;
   border-color: var(--color-primary);
   color: var(--color-primary);
+  text-decoration: none;
 }
 
 .btn-secondary:hover {
   background: var(--color-primary);
   color: white;
+}
+
+/* Remove underlines from specific elements */
+.no-underline,
+.no-underline * {
+  text-decoration: none !important;
 }
 
 /* Section Spacing */

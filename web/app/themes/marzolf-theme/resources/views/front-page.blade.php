@@ -225,7 +225,7 @@
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {{-- Jeff Marzolf --}}
-          <a href="{{ get_permalink(10) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover">
+          <a href="{{ get_permalink(10) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover no-underline">
             <div class="aspect-[3/4] overflow-hidden">
               <img src="/app/uploads/jeff-marzolf.jpg" alt="Jeff Marzolf" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
@@ -237,7 +237,7 @@
           </a>
           
           {{-- Jesse Giles --}}
-          <a href="{{ get_permalink(11) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover">
+          <a href="{{ get_permalink(11) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover no-underline">
             <div class="aspect-[3/4] overflow-hidden">
               <img src="/app/uploads/jesse-giles.jpg" alt="Jesse Giles" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
@@ -249,7 +249,7 @@
           </a>
           
           {{-- Sam Shelley --}}
-          <a href="{{ get_permalink(12) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover">
+          <a href="{{ get_permalink(12) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover no-underline">
             <div class="aspect-[3/4] overflow-hidden">
               <img src="/app/uploads/sam-shelley.jpg" alt="Sam Shelley" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>
@@ -261,7 +261,7 @@
           </a>
           
           {{-- Brandi Shipwash --}}
-          <a href="{{ get_permalink(13) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover">
+          <a href="{{ get_permalink(13) }}" class="team-card group bg-white rounded-2xl overflow-hidden card-hover no-underline">
             <div class="aspect-[3/4] overflow-hidden">
               <img src="/app/uploads/brandi-shipwash.jpg" alt="Brandi Shipwash" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
             </div>

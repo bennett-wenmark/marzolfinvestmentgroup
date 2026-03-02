@@ -1,16 +1,16 @@
 <header class="site-header bg-white border-b border-neutral-200 sticky top-0 z-50">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <a class="site-logo flex items-center" href="{{ home_url('/') }}">
-      <img src="{{ get_theme_file_uri('resources/images/logo_marzolf-investment-group.svg') }}" alt="{{ $siteName }}" class="h-10 w-auto">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a class="site-logo flex items-center no-underline" href="{{ home_url('/') }}">
+      <img src="{{ get_theme_file_uri('resources/images/logo_marzolf-investment-group.svg') }}" alt="{{ $siteName }}" class="h-16 w-auto">
     </a>
 
     @if (has_nav_menu('primary_navigation'))
       <nav class="main-nav hidden md:block" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
         {!! wp_nav_menu([
           'theme_location' => 'primary_navigation',
-          'menu_class' => 'nav flex gap-8',
+          'menu_class' => 'nav flex gap-8 no-underline',
           'echo' => false,
-          'link_before' => '<span class="font-medium transition hover:text-green-700" style="color: var(--color-neutral-700);">',
+          'link_before' => '<span class="font-medium transition hover:text-green-700 no-underline" style="color: var(--color-neutral-700);">',
           'link_after' => '</span>',
         ]) !!}
       </nav>
