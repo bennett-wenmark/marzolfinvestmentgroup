@@ -27,15 +27,26 @@
 
 <style>
   /* Nav link hover/active states */
-  /* Force remove underlines from all nav links */
+  /* Force remove underlines from all nav links - override WordPress global styles */
   .main-nav a,
   .main-nav a span,
   .nav-link,
   #site-header .nav-link,
-  .menu-primary-navigation a {
+  .menu-primary-navigation a,
+  #menu-primary-navigation a,
+  #menu-primary-navigation a span,
+  .menu-item a,
+  .current-menu-item a {
     text-decoration: none !important;
     border-bottom: none !important;
     box-shadow: none !important;
+    background-image: none !important;
+  }
+  
+  /* Override WordPress a:where(:not(.wp-element-button)) specifically */
+  body .main-nav a:where(:not(.wp-element-button)),
+  body #site-header a:where(:not(.wp-element-button)) {
+    text-decoration: none !important;
   }
   
   .nav-link {
