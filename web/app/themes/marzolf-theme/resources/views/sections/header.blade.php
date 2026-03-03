@@ -10,7 +10,7 @@
           'theme_location' => 'primary_navigation',
           'menu_class' => 'nav flex items-center gap-1',
           'echo' => false,
-          'link_before' => '<span class="nav-link relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 no-underline" style="color: rgba(255,255,255,0.9);">',
+          'link_before' => '<span class="nav-link relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300" style="color: rgba(255,255,255,0.9); text-decoration: none !important;">',
           'link_after' => '</span>',
         ]) !!}
       </nav>
@@ -27,14 +27,20 @@
 
 <style>
   /* Nav link hover/active states */
+  /* Force remove underlines from all nav links */
+  .main-nav a,
+  .main-nav a span,
+  .nav-link,
+  #site-header .nav-link,
+  .menu-primary-navigation a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  
   .nav-link {
     position: relative;
     overflow: hidden;
-    text-decoration: none !important;
-  }
-  
-  .nav-link * {
-    text-decoration: none !important;
   }
   
   .nav-link::before {
