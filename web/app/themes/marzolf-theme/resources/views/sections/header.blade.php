@@ -178,12 +178,13 @@
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          const headerOffset = 100; // Account for floating header
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          // Get the target's position relative to the document
+          const headerHeight = document.getElementById('site-header').offsetHeight + 20; // Header + buffer
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
           
+          // Smooth scroll to target
           window.scrollTo({
-            top: offsetPosition,
+            top: targetPosition,
             behavior: 'smooth'
           });
         }
