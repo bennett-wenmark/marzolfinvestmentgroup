@@ -1,8 +1,6 @@
-@php
-/*
+{{--
 Template Name: Services Overview
-*/
-@endphp
+--}}
 
 @extends('layouts.app')
 

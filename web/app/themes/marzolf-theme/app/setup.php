@@ -9,16 +9,7 @@ namespace App;
 use Illuminate\Support\Facades\Vite;
 
 /**
- * Force services page template
- */
-add_filter('template_include', function ($template) {
-    if (is_page('services')) {
-        return get_template_directory() . '/page-services.php';
-    }
-    return $template;
-});
-
-/**
+ * Inject styles into the block editor.
  * Inject styles into the block editor.
  *
  * @return array
