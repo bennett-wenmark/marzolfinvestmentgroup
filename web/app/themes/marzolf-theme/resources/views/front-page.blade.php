@@ -3,27 +3,35 @@
 @section('content')
   <div class="front-page">
     
-    {{-- Hero Section - Modern with Gradient --}}
+    {{-- Hero Section - Sophisticated Motion --}}
     <section class="hero relative min-h-[85vh] flex items-center overflow-hidden" style="background: linear-gradient(135deg, #1a3d14 0%, #206d13 50%, #2d8a1d 100%);">
+      {{-- Particle Network Canvas --}}
+      <canvas id="particle-network" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+      
       {{-- Subtle Pattern Overlay --}}
       <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
       
       <div class="container-modern relative z-10">
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+          <div class="hero-badge inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 opacity-0">
             <span class="w-2 h-2 bg-green-300 rounded-full animate-pulse"></span>
             <span class="text-green-100 text-sm font-medium">Serving East Tennessee Since 1989</span>
           </div>
           
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Wisdom Applied to Your <span class="text-green-200">Financial Future</span>
+          <h1 class="hero-headline text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <span class="hero-word inline-block opacity-0">Wisdom</span>
+            <span class="hero-word inline-block opacity-0">Applied</span>
+            <span class="hero-word inline-block opacity-0">to</span>
+            <span class="hero-word inline-block opacity-0">Your</span>
+            <span class="hero-word inline-block text-green-200 opacity-0">Financial</span>
+            <span class="hero-word inline-block text-green-200 opacity-0">Future</span>
           </h1>
           
-          <p class="text-xl md:text-2xl text-green-50 mb-10 leading-relaxed max-w-2xl">
+          <p class="hero-subhead text-xl md:text-2xl text-green-50 mb-10 leading-relaxed max-w-2xl opacity-0">
             Nearly 30 years of experience helping individuals and families achieve their goals through trust, integrity, and personalized planning.
           </p>
           
-          <div class="flex flex-col sm:flex-row gap-4">
+          <div class="hero-buttons flex flex-col sm:flex-row gap-4 opacity-0">
             <a href="#contact" class="btn-primary bg-white text-green-800 hover:bg-green-50 no-underline" style="text-decoration: none;">
               Schedule a Consultation
               <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,20 +44,20 @@
           </div>
           
           {{-- Trust Indicators --}}
-          <div class="mt-16 flex items-center gap-8 text-green-100/80">
-            <div class="flex items-center gap-2">
+          <div class="hero-trust mt-16 flex flex-wrap items-center gap-6 text-green-100/80">
+            <div class="trust-badge flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 transform translate-y-4">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span class="text-sm font-medium">CFP® Professional</span>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="trust-badge flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 transform translate-y-4">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span class="text-sm font-medium">30+ Years Experience</span>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="trust-badge flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 transform translate-y-4">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
@@ -58,6 +66,176 @@
           </div>
         </div>
       </div>
+      
+      <style>
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes floatBadge {
+          0%, 100% {
+            transform: translateY(4px);
+            opacity: 1;
+          }
+          50% {
+            transform: translateY(-4px);
+            opacity: 1;
+          }
+        }
+        
+        .hero-badge.animate {
+          animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .hero-word.animate {
+          animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        .hero-subhead.animate {
+          animation: fadeInUp 0.6s ease 0.8s forwards;
+        }
+        
+        .hero-buttons.animate {
+          animation: fadeInUp 0.6s ease 1s forwards;
+        }
+        
+        .trust-badge.animate {
+          animation: floatBadge 0.6s ease forwards;
+        }
+        
+        .trust-badge:nth-child(1).animate { animation-delay: 1.2s; }
+        .trust-badge:nth-child(2).animate { animation-delay: 1.4s; }
+        .trust-badge:nth-child(3).animate { animation-delay: 1.6s; }
+      </style>
+      
+      <script>
+        // Staggered text reveal
+        document.addEventListener('DOMContentLoaded', () => {
+          const words = document.querySelectorAll('.hero-word');
+          const badge = document.querySelector('.hero-badge');
+          const subhead = document.querySelector('.hero-subhead');
+          const buttons = document.querySelector('.hero-buttons');
+          const trustBadges = document.querySelectorAll('.trust-badge');
+          
+          // Animate badge first
+          setTimeout(() => badge.classList.add('animate'), 100);
+          
+          // Animate words with stagger
+          words.forEach((word, index) => {
+            setTimeout(() => {
+              word.classList.add('animate');
+            }, 300 + (index * 100));
+          });
+          
+          // Animate subhead
+          setTimeout(() => subhead.classList.add('animate'), 800);
+          
+          // Animate buttons
+          setTimeout(() => buttons.classList.add('animate'), 1000);
+          
+          // Animate trust badges
+          trustBadges.forEach((badge, index) => {
+            setTimeout(() => {
+              badge.classList.add('animate');
+            }, 1200 + (index * 200));
+          });
+          
+          // Particle Network
+          const canvas = document.getElementById('particle-network');
+          if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            const particleCount = 25;
+            const connectionDistance = 100;
+            const maxConnections = 3;
+            
+            function resize() {
+              width = canvas.width = canvas.offsetWidth;
+              height = canvas.height = canvas.offsetHeight;
+            }
+            
+            function createParticles() {
+              particles = [];
+              for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                  x: Math.random() * width,
+                  y: Math.random() * height,
+                  vx: (Math.random() - 0.5) * 0.5,
+                  vy: (Math.random() - 0.5) * 0.5,
+                  radius: Math.random() * 2 + 1
+                });
+              }
+            }
+            
+            function drawParticles() {
+              ctx.clearRect(0, 0, width, height);
+              
+              // Draw connections
+              ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+              ctx.lineWidth = 1;
+              
+              for (let i = 0; i < particles.length; i++) {
+                let connections = 0;
+                for (let j = i + 1; j < particles.length; j++) {
+                  const dx = particles[i].x - particles[j].x;
+                  const dy = particles[i].y - particles[j].y;
+                  const distance = Math.sqrt(dx * dx + dy * dy);
+                  
+                  if (distance < connectionDistance && connections < maxConnections) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                    connections++;
+                  }
+                }
+              }
+              
+              // Draw particles
+              ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+              for (let particle of particles) {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Update position
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                // Wrap around
+                if (particle.x < 0) particle.x = width;
+                if (particle.x > width) particle.x = 0;
+                if (particle.y < 0) particle.y = height;
+                if (particle.y > height) particle.y = 0;
+              }
+              
+              requestAnimationFrame(drawParticles);
+            }
+            
+            resize();
+            createParticles();
+            drawParticles();
+            
+            window.addEventListener('resize', () => {
+              resize();
+              createParticles();
+            });
+          }
+        });
+      </script>
       
       {{-- Decorative Wave --}}
       <div class="absolute bottom-0 left-0 right-0">
