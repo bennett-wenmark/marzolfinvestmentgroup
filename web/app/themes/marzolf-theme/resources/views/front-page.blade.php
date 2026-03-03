@@ -4,7 +4,7 @@
   <div class="front-page">
     
     {{-- Hero Section - Sophisticated Motion --}}
-    <section class="hero relative min-h-[85vh] flex items-center overflow-hidden" style="background: linear-gradient(135deg, #1a3d14 0%, #206d13 50%, #2d8a1d 100%);">
+    <section class="hero relative min-h-[85vh] flex items-center overflow-hidden pt-24" style="background: linear-gradient(135deg, #1a3d14 0%, #206d13 50%, #2d8a1d 100%);">
       {{-- Particle Network Canvas --}}
       <canvas id="particle-network" class="absolute inset-0 w-full h-full opacity-30"></canvas>
       
