@@ -29,12 +29,12 @@
 </header>
 
 {{-- Mobile Menu Overlay --}}
-<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 hidden" aria-hidden="true">
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-50" style="visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.3s;" aria-hidden="true">
   {{-- Backdrop --}}
-  <div class="mobile-menu-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm" aria-hidden="true"></div>
+  <div class="mobile-menu-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm" style="z-index: 51;" aria-hidden="true"></div>
   
   {{-- Menu Panel --}}
-  <div class="mobile-menu-panel absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out" style="z-index: 102;">
+  <div class="mobile-menu-panel absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl" style="z-index: 52; transform: translateX(100%); transition: transform 0.3s ease-out;">
     <div class="flex flex-col h-full">
       {{-- Close Button --}}
       <div class="flex justify-end p-4">
@@ -151,27 +151,6 @@
     background: rgba(255, 255, 255, 0.1);
   }
   
-  /* Mobile Menu States */
-  .mobile-menu {
-    z-index: 100;
-  }
-  
-  .mobile-menu-backdrop {
-    z-index: 101;
-  }
-  
-  .mobile-menu-panel {
-    z-index: 102;
-  }
-  
-  .mobile-menu.open {
-    display: block;
-  }
-  
-  .mobile-menu.open .mobile-menu-panel {
-    transform: translateX(0);
-  }
-  
   /* Prevent body scroll when menu open */
   body.menu-open {
     overflow: hidden;
@@ -191,11 +170,10 @@
     
     // Mobile menu functions
     function openMobileMenu() {
-      mobileMenu.classList.remove('hidden');
-      // Small delay to allow display:block to apply before adding transform
-      setTimeout(() => {
-        mobileMenu.classList.add('open');
-      }, 10);
+      const panel = mobileMenu.querySelector('.mobile-menu-panel');
+      mobileMenu.style.visibility = 'visible';
+      mobileMenu.style.opacity = '1';
+      panel.style.transform = 'translateX(0)';
       document.body.classList.add('menu-open');
       mobileMenuToggle.setAttribute('aria-expanded', 'true');
       mobileMenu.setAttribute('aria-hidden', 'false');
@@ -204,7 +182,9 @@
     }
     
     function closeMobileMenu() {
-      mobileMenu.classList.remove('open');
+      const panel = mobileMenu.querySelector('.mobile-menu-panel');
+      panel.style.transform = 'translateX(100%)';
+      mobileMenu.style.opacity = '0';
       document.body.classList.remove('menu-open');
       mobileMenuToggle.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
@@ -212,8 +192,8 @@
       menuIconClose.classList.add('hidden');
       // Wait for transition to finish before hiding
       setTimeout(() => {
-        if (!mobileMenu.classList.contains('open')) {
-          mobileMenu.classList.add('hidden');
+        if (mobileMenu.style.opacity === '0') {
+          mobileMenu.style.visibility = 'hidden';
         }
       }, 300);
     }
