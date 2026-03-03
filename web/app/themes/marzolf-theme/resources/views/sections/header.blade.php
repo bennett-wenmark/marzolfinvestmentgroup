@@ -1,7 +1,7 @@
 <header class="site-header fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl transition-all duration-500" id="site-header">
   <div class="header-inner flex justify-between items-center px-6 py-3 rounded-full transition-all duration-500 bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg">
-    <a class="site-logo flex items-center no-underline group" href="{{ home_url('/') }}">
-      <img src="{{ get_theme_file_uri('resources/images/logo_marzolf-investment-group.svg') }}" alt="{{ $siteName }}" class="h-24 w-auto transition-transform duration-300 group-hover:scale-105" style="filter: brightness(0) invert(1);">
+    <a class="site-logo flex items-center no-underline group" href="{{ home_url('/') }}" style="text-decoration: none !important;">
+      <img src="{{ get_theme_file_uri('resources/images/logo_marzolf-investment-group.svg') }}" alt="{{ $siteName }}" class="w-auto transition-transform duration-300 group-hover:scale-105" style="filter: brightness(0) invert(1); height: calc(var(--spacing) * 16);">
     </a>
 
     @if (has_nav_menu('primary_navigation'))
@@ -30,6 +30,11 @@
   .nav-link {
     position: relative;
     overflow: hidden;
+    text-decoration: none !important;
+  }
+  
+  .nav-link * {
+    text-decoration: none !important;
   }
   
   .nav-link::before {
