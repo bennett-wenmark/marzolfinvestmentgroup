@@ -9,7 +9,7 @@ Template Name: Services Overview
     <article class="services-overview-page">
       
       {{-- Hero Header --}}
-      <section class="services-hero py-16" style="background: linear-gradient(135deg, #1a3d14 0%, #206d13 50%, #1a5a10 100%);">
+      <section class="services-hero pt-32 pb-16" style="background: linear-gradient(135deg, #1a3d14 0%, #206d13 50%, #1a5a10 100%);">
         <div class="container mx-auto px-4">
           <div class="max-w-3xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
