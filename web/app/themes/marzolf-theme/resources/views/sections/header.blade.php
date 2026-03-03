@@ -169,25 +169,39 @@
     
     window.addEventListener('scroll', highlightNav, { passive: true });
     
-    // Smooth scroll for nav links - prevent jump to top
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scroll for nav links - handle both hash-only and full URLs
+    document.querySelectorAll('a').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
         
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          // Get the target's position relative to the document
-          const headerHeight = document.getElementById('site-header').offsetHeight + 20; // Header + buffer
-          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+        // Parse the URL
+        const linkUrl = new URL(href, window.location.origin);
+        const currentUrl = new URL(window.location.href);
+        
+        // Check if this is a same-page hash link
+        const isSamePage = linkUrl.hostname === currentUrl.hostname && 
+                           linkUrl.pathname === currentUrl.pathname &&
+                           linkUrl.hash;
+        
+        if (isSamePage) {
+          e.preventDefault();
+          const targetId = linkUrl.hash;
+          const targetElement = document.querySelector(targetId);
           
-          // Smooth scroll to target
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+          if (targetElement) {
+            // Get the target's position relative to the document
+            const headerHeight = document.getElementById('site-header').offsetHeight + 20; // Header + buffer
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+            
+            // Smooth scroll to target
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
         }
+        // If different page, let browser handle normally (full page load + scroll to hash)
       });
     });
   });
