@@ -19,6 +19,8 @@
 
       @include('sections.header')
 
+      <div class="header-spacer"></div>
+
       <main id="main" class="main">
         @yield('content')
       </main>
