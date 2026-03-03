@@ -34,7 +34,7 @@
   <div class="mobile-menu-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm" aria-hidden="true"></div>
   
   {{-- Menu Panel --}}
-  <div class="mobile-menu-panel absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out">
+  <div class="mobile-menu-panel absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out" style="z-index: 102;">
     <div class="flex flex-col h-full">
       {{-- Close Button --}}
       <div class="flex justify-end p-4">
@@ -152,6 +152,18 @@
   }
   
   /* Mobile Menu States */
+  .mobile-menu {
+    z-index: 100;
+  }
+  
+  .mobile-menu-backdrop {
+    z-index: 101;
+  }
+  
+  .mobile-menu-panel {
+    z-index: 102;
+  }
+  
   .mobile-menu.open {
     display: block;
   }
