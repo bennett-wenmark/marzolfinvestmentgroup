@@ -1,7 +1,7 @@
 <header class="site-header fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl transition-all duration-500" id="site-header">
   <div class="header-inner flex justify-between items-center px-6 py-3 rounded-full transition-all duration-500 bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg">
     <a class="site-logo flex items-center no-underline group" href="{{ home_url('/') }}">
-      <img src="{{ get_theme_file_uri('resources/images/logo_marzolf-investment-group.svg') }}" alt="{{ $siteName }}" class="h-14 w-auto transition-transform duration-300 group-hover:scale-105">
+      <img src="{{ get_theme_file_uri('resources/images/logo_marzolf-investment-group.svg') }}" alt="{{ $siteName }}" class="h-24 w-auto transition-transform duration-300 group-hover:scale-105" style="filter: brightness(0) invert(1);">
     </a>
 
     @if (has_nav_menu('primary_navigation'))
@@ -26,11 +26,6 @@
 </header>
 
 <style>
-  /* Spacer for fixed header */
-  .header-spacer {
-    height: 80px;
-  }
-  
   /* Nav link hover/active states */
   .nav-link {
     position: relative;
@@ -107,31 +102,47 @@
     // Initial state
     header.classList.add('initial');
     
+    // Set Home as active by default when at top
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (navLinks.length > 0) {
+      navLinks[0].classList.add('active');
+    }
+    
     // Scroll listener
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
     
     // Active nav highlighting based on scroll position
     const sections = ['services', 'team', 'contact'];
-    const navLinks = document.querySelectorAll('.nav-link');
     
     function highlightNav() {
       const scrollPos = window.pageYOffset + 200;
+      let activeSet = false;
       
-      sections.forEach((sectionId, index) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const top = section.offsetTop;
-          const bottom = top + section.offsetHeight;
-          
-          if (scrollPos >= top && scrollPos < bottom) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (navLinks[index + 1]) { // +1 because Home is first
-              navLinks[index + 1].classList.add('active');
+      // Check if we're near the top (hero section)
+      if (window.pageYOffset < 300) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        if (navLinks[0]) navLinks[0].classList.add('active');
+        activeSet = true;
+      }
+      
+      // Check other sections
+      if (!activeSet) {
+        sections.forEach((sectionId, index) => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            const top = section.offsetTop;
+            const bottom = top + section.offsetHeight;
+            
+            if (scrollPos >= top && scrollPos < bottom) {
+              navLinks.forEach(link => link.classList.remove('active'));
+              if (navLinks[index + 1]) { // +1 because Home is first
+                navLinks[index + 1].classList.add('active');
+              }
             }
           }
-        }
-      });
+        });
+      }
     }
     
     window.addEventListener('scroll', highlightNav, { passive: true });

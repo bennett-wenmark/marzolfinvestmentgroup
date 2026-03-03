@@ -32,13 +32,13 @@
           </p>
           
           <div class="hero-buttons flex flex-col sm:flex-row gap-4 opacity-0">
-            <a href="#contact" class="btn-primary bg-white text-green-800 hover:bg-green-50 no-underline" style="text-decoration: none;">
+            <a href="#contact" class="btn-primary bg-white text-green-800 hover:bg-green-50 no-underline text-lg" style="text-decoration: none;">
               Schedule a Consultation
               <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </a>
-            <a href="#team" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition backdrop-blur-sm no-underline" style="text-decoration: none;">
+            <a href="#team" class="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white border-2 border-white/50 hover:bg-white/20 transition backdrop-blur-sm no-underline text-lg" style="text-decoration: none;">
               Meet Our Team
             </a>
           </div>
