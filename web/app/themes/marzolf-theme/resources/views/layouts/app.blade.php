@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="{{ get_theme_file_uri('resources/images/favicon_marzolf-investment-group.svg') }}">
     @php(do_action('get_header'))
     @php(wp_head())
 
